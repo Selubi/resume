@@ -4,6 +4,11 @@ This is the source code repository for my personal CV (affectionately called as 
 # Where can I get the PDF?
 https://public.selubi.tech/personal/resume-english.pdf
 
+# License
+The template itself (code, formatting, structure) in this repository is licensed under MIT License.
+However, please note that the personal data included in the resume is not covered under this license.
+You are free to modify the template for your own use, but do not distribute the personal information contained in the original document.
+
 # Customization
 Below are the list of customization I did against the original `awesome-cv`. All customization is backward-compatible.
 
