@@ -12,7 +12,7 @@
 %-------------------------------------------------------------------------------
 %                Identification
 %-------------------------------------------------------------------------------
-\ProvidesClass{awesome-cv}[2017/02/05 v1.6.1 Awesome Curriculum Vitae Class]
+\ProvidesClass{selu-cv}[2024/01/07 v1.0.0 Selu-CV class]
 \NeedsTeXFormat{LaTeX2e}
 
 
