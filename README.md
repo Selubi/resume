@@ -34,18 +34,7 @@ Modified:
   \end{itemize}
 }
 
-% Define an environment for cvitems(for cventry) (backwards-compatible with original awesome-cv)
-\newenvironment{cvitems}{%
-  \vspace{-4.0mm}
-  \begin{justify}
-  \begin{cvbullets}
-}{%
-  \end{cvbullets}
-  \end{justify}
-  \vspace{-4.0mm}
-}
-
-% Define an environment for the job description that can accommodate paragraphs as well
+% This is basically cvitems without the itemize
 \newenvironment{cvjobdesc}{%
   \vspace{-4.0mm}
   \begin{justify}
@@ -53,11 +42,18 @@ Modified:
   \end{justify}
   \vspace{-4.0mm}
 }
+
+% Define an environment for cvitems(for cventry) (backwards-compatible with original awesome-cv)
+\newenvironment{cvitems}{%
+  \begin{cvjobdesc}
+  \begin{cvbullets}
+}{%
+  \end{cvbullets}
+  \end{cvjobdesc}
+}
 ```
 
-Basically I decoupled the itemize part of `cvitems` to `cvbullets` but kept the `cvitems` as original for backward compatibility.
-
-I then created a new class `cvjobdesc` to mimic `cvitems` without the `cvbullets` part. We can call `cvbullets` by ourselves later.
+Basically I decoupled the section formatting part and itemize part of `cvitems` to `cvjobdesc` and `cvbullets` but kept the `cvitems` as original for backward compatibility.
 
 ## Languages in header
 Added the below snippet to include languages spoken in header.

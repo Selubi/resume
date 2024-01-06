@@ -1,5 +1,5 @@
 %% Start of file `selu-cv.cls'.
-% Selu-CV Class File
+% SeluCV Class File
 %
 % This is a modified document class based on Awesome-CV:
 % https://github.com/posquit0/Awesome-CV
@@ -687,24 +687,22 @@
   \end{itemize}
 }
 
-% Define an environment for cvitems(for cventry) (backwards-compatible with original awesome-cv)
-\newenvironment{cvitems}{%
-  \vspace{-4.0mm}
-  \begin{justify}
-  \begin{cvbullets}
-}{%
-  \end{cvbullets}
-  \end{justify}
-  \vspace{-4.0mm}
-}
-
-% Define an environment for the job description that can accommodate paragraphs as well
+% This is basically cvitems without the itemize
 \newenvironment{cvjobdesc}{%
   \vspace{-4.0mm}
   \begin{justify}
 }{%
   \end{justify}
   \vspace{-4.0mm}
+}
+
+% Define an environment for cvitems(for cventry) (backwards-compatible with original awesome-cv)
+\newenvironment{cvitems}{%
+  \begin{cvjobdesc}
+  \begin{cvbullets}
+}{%
+  \end{cvbullets}
+  \end{cvjobdesc}
 }
 
 %-------------------------------------------------------------------------------
