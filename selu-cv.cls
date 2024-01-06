@@ -1,21 +1,12 @@
-%% Start of file `awesome-cv.cls'.
-% Awesome CV Class File
+%% Start of file `selu-cv.cls'.
+% Selu-CV Class File
 %
-% This class has been downloaded from:
+% This is a modified document class based on Awesome-CV:
 % https://github.com/posquit0/Awesome-CV
 %
 % Author:
-% Claud D. Park <posquit0.bj@gmail.com>
-% http://www.posquit0.com
-%
-% Notes:
-% 1) This class file defines the structure and layout of the template file (cv.tex, resume.tex).
-% 2) It has been written in such a way that under most circumstances you
-% should not need to edit it.
-%
-% Class license:
-% LPPL v1.3c (http://www.latex-project.org/lppl)
-%
+% Gregorius Bryan <contact@selubi.tech>
+% https://selubi.tech/
 
 
 %-------------------------------------------------------------------------------
@@ -88,6 +79,15 @@
   pdfsubject={},
   pdfkeywords={}
 }
+
+%-------------------------------------------------------------------------------
+%                Handle Japanese Characters
+%-------------------------------------------------------------------------------
+% See https://ja.overleaf.com/learn/latex/Japanese#Using_Google_Noto_fonts for more details
+\RequirePackage{xeCJK}
+\setCJKmainfont{Noto Sans CJK JP}
+\setCJKsansfont{Noto Sans CJK JP}
+\setCJKmonofont{Noto Sans Mono CJK JP}
 
 
 %-------------------------------------------------------------------------------
@@ -323,6 +323,10 @@
 % Usage: \medium{<medium account>}
 \newcommand*{\medium}[1]{\def\@medium{#1}}
 
+% Defines writer's languages (optional)
+% Usage: \languages{<languages>}
+\newcommand*{\languages}[1]{\def\@languages{#1}}
+
 % Defines writer's google scholar profile (optional)
 % Usage: \googlescholar{<googlescholar userid>}{<googlescholar username>}
 % e.g.https://scholar.google.co.uk/citations?user=wpZDx1cAAAAJ
@@ -395,7 +399,7 @@
 \newcommand{\acvHeaderAfterQuoteSkip}{5mm}
 
 % Others
-\newcommand{\acvSectionTopSkip}{3mm}
+\newcommand{\acvSectionTopSkip}{2.5mm}
 \newcommand{\acvSectionContentTopSkip}{2.5mm}
 
 
@@ -532,6 +536,12 @@
         {%
           \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
           \href{https://scholar.google.com/citations?user=\@googlescholarid}{\faGraduationCap\acvHeaderIconSep\@googlescholarname}%
+        }%
+      \ifthenelse{\isundefined{\@languages}}%
+        {}%
+        {%
+          \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
+          \faLanguage\acvHeaderIconSep\@languages%
         }%
       \ifthenelse{\isundefined{\@extrainfo}}%
         {}%
