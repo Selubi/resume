@@ -8,9 +8,12 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    container: texlive/texlive:latest
+    container: texlive/texlive:latest # Debian-based
 
     steps:
+      - name: Install dependencies
+        run: apt-get update && apt-get install -y fonts-noto
+
       - name: Checkout repo
         uses: actions/checkout@v4
 
