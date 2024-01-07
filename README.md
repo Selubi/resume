@@ -1,24 +1,35 @@
-# Overview
+## Overview
 
 This is the source code repository for my personal CV (affectionately called as Selu-CV). It is made using TeX and based on the awesome template, [Awesome-CV](https://github.com/posquit0/Awesome-CV).
 
-# Where can I get the PDF?
+## Where can I get the PDF?
 
 https://public.selubi.tech/personal/resume-english.pdf
 
-# License
+## Deployment
 
-The template itself (code, formatting, structure) in this repository is licensed under MIT License.
-However, please note that the personal data included in the resume is not covered under this license.
-You are free to modify the template for your own use, but do not distribute the personal information contained in the original document.
+"But wait, its just a resume not an app, what do you mean by deploying a resume?"
 
-# Development guide
+No, "deployment" doesn't mean automatically sending the resume to recruiters (although that could be fun).
 
-## Editing on local machine
+Deployment here means every time this repo changes, we automatically re-build and re-upload the PDF to the link on [where can i get the pdf](#where-can-i-get-the-pdf).
+
+Deployment is done automatically via [`.github/workflows/build_and_upload_pdf.yaml`](.github/workflows/build_and_upload_pdf.yaml) if any changes on `**/*.tex` or `**/*.cls` is pushed to main branch.
+
+At a high level:
+
+1. Any `*.tex` file on the repository root is compiled to pdf with the same steps as [compiling to pdf](#compiling-to-pdf).
+2. PDFs generated from step 1 is automatically uploaded to a bucket.
+
+For those who are interested I'm using [Cloudflare R2](https://www.cloudflare.com/developer-platform/r2/) via [AWS CLI s3api](https://developers.cloudflare.com/r2/examples/aws/aws-cli/).
+
+## Development guide
+
+### Editing on local machine
 
 This repository is setup to be edited via devcontainers. Just launch devcontainers with vscode with the settings in `.devcontainer`
 
-## Compiling to PDF
+### Compiling to PDF
 
 Run the command below
 
@@ -28,11 +39,17 @@ make pdf <yourtexfile.tex>
 
 It will compile the tex file provided with `latexmk (XeLaTeX)`. This is aligned with the default recipe specified in `latex-workshop.latex.recipe.default` the container.
 
-# Customization
+## License
+
+The template itself (code, formatting, structure) in this repository is licensed under MIT License.
+However, please note that the personal data included in the resume is not covered under this license.
+You are free to modify the template for your own use, but do not distribute the personal information contained in the original document.
+
+## Customization
 
 Below are the list of customization I did against the original `awesome-cv`.
 
-## Paragraph allowed job description
+### Paragraph allowed job description
 
 Original:
 
@@ -84,7 +101,7 @@ Modified:
 
 Basically I decoupled the section formatting part and itemize part of `cvitems` to `cvjobdesc` and `cvbullets` but kept the `cvitems` as original for backward compatibility.
 
-## Languages in header
+### Languages in header
 
 Added the below snippet to include languages spoken in header.
 
@@ -114,7 +131,7 @@ Added the below snippet to include languages spoken in header.
     }%
 ```
 
-## Spaces between section is changed to 2.5mm
+### Spaces between section is changed to 2.5mm
 
 ```tex
 %-------------------------------------------------------------------------------
@@ -126,7 +143,7 @@ Added the below snippet to include languages spoken in header.
 \newcommand{\acvSectionTopSkip}{2.5mm}
 ```
 
-## Noto fonts usage
+### Noto fonts usage
 
 I installed noto fonts with `apt` within the `.devcontainer` and modified header to be Noto Sans.
 
@@ -146,7 +163,7 @@ I installed noto fonts with `apt` within the `.devcontainer` and modified header
 ]{NotoSans}
 ```
 
-## Japanese language support added
+### Japanese language support added
 
 ```tex
 %-------------------------------------------------------------------------------
