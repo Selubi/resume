@@ -1,19 +1,25 @@
 # Overview
+
 This is the source code repository for my personal CV (affectionately called as Selu-CV). It is made using TeX and based on the awesome template, [Awesome-CV](https://github.com/posquit0/Awesome-CV).
 
 # Where can I get the PDF?
+
 https://public.selubi.tech/personal/resume-english.pdf
 
 # License
+
 The template itself (code, formatting, structure) in this repository is licensed under MIT License.
 However, please note that the personal data included in the resume is not covered under this license.
 You are free to modify the template for your own use, but do not distribute the personal information contained in the original document.
 
 # Customization
+
 Below are the list of customization I did against the original `awesome-cv`. All customization is backward-compatible.
 
 ## Paragraph allowed job description
+
 Original:
+
 ```tex
 % Define an environment for cvitems(for cventry)
 \newenvironment{cvitems}{%
@@ -28,7 +34,9 @@ Original:
   \vspace{-4.0mm}
 }
 ```
+
 Modified:
+
 ```tex
 % Bullet points to be used within cvitems and cvjobdesc
 \newenvironment{cvbullets}{%
@@ -61,7 +69,9 @@ Modified:
 Basically I decoupled the section formatting part and itemize part of `cvitems` to `cvjobdesc` and `cvbullets` but kept the `cvitems` as original for backward compatibility.
 
 ## Languages in header
+
 Added the below snippet to include languages spoken in header.
+
 ```tex
 %-------------------------------------------------------------------------------
 %                Commands for personal information
@@ -89,6 +99,7 @@ Added the below snippet to include languages spoken in header.
 ```
 
 ## Spaces between section is changed to 2.5mm
+
 ```tex
 %-------------------------------------------------------------------------------
 %                Commands for extra
@@ -100,6 +111,7 @@ Added the below snippet to include languages spoken in header.
 ```
 
 ## Japanese language support added
+
 ```tex
 %-------------------------------------------------------------------------------
 %                Handle Japanese Characters

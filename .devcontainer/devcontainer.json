@@ -5,9 +5,12 @@
     // Configure properties specific to VS Code.
     "vscode": {
       "settings": {
-        "latex-workshop.latex.outDir" :"%DIR%/tmp"
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "latex-workshop.latex.outDir": "%DIR%/build",
+        "latex-workshop.latex.recipe.default": "latexmk (xelatex)"
       },
-      "extensions": ["James-Yu.latex-workshop"]
+      "extensions": ["James-Yu.latex-workshop", "esbenp.prettier-vscode"]
     }
   },
   // Avoid git dubious ownership https://www.kenmuse.com/blog/avoiding-dubious-ownership-in-dev-containers/
