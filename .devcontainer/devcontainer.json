@@ -1,0 +1,15 @@
+{
+  "name": "TeX Live",
+  "build": { "dockerfile": "Dockerfile" },
+  "customizations": {
+    // Configure properties specific to VS Code.
+    "vscode": {
+      "settings": {
+        "latex-workshop.latex.outDir" :"%DIR%/tmp"
+      },
+      "extensions": ["James-Yu.latex-workshop"]
+    }
+  },
+  // Avoid git dubious ownership https://www.kenmuse.com/blog/avoiding-dubious-ownership-in-dev-containers/
+  "postStartCommand": "git config --global --add safe.directory ${containerWorkspaceFolder}"
+}
