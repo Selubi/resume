@@ -12,9 +12,25 @@ The template itself (code, formatting, structure) in this repository is licensed
 However, please note that the personal data included in the resume is not covered under this license.
 You are free to modify the template for your own use, but do not distribute the personal information contained in the original document.
 
+# Development guide
+
+## Editing on local machine
+
+This repository is setup to be edited via devcontainers. Just launch devcontainers with vscode with the settings in `.devcontainer`
+
+## Compiling to PDF
+
+Run the command below
+
+```
+make pdf <yourtexfile.tex>
+```
+
+It will compile the tex file provided with `latexmk (XeLaTeX)`. This is aligned with the default recipe specified in `latex-workshop.latex.recipe.default` the container.
+
 # Customization
 
-Below are the list of customization I did against the original `awesome-cv`. All customization is backward-compatible.
+Below are the list of customization I did against the original `awesome-cv`.
 
 ## Paragraph allowed job description
 
@@ -110,6 +126,26 @@ Added the below snippet to include languages spoken in header.
 \newcommand{\acvSectionTopSkip}{2.5mm}
 ```
 
+## Noto fonts usage
+
+I installed noto fonts with `apt` within the `.devcontainer` and modified header to be Noto Sans.
+
+```tex
+\newfontfamily\headerfont[
+  UprightFont=*-Regular,
+  ItalicFont=*-Italic,
+  BoldFont=*-Bold,
+  BoldItalicFont=*-BoldItalic,
+]{NotoSans}
+
+\newfontfamily\headerfontlight[
+  UprightFont=*-Thin,
+  ItalicFont=*-ThinItalic,
+  BoldFont=*-Medium,
+  BoldItalicFont=*-MediumItalic,
+]{NotoSans}
+```
+
 ## Japanese language support added
 
 ```tex
@@ -121,5 +157,4 @@ Added the below snippet to include languages spoken in header.
 \setCJKmainfont{Noto Sans CJK JP}
 \setCJKsansfont{Noto Sans CJK JP}
 \setCJKmonofont{Noto Sans Mono CJK JP}
-
 ```

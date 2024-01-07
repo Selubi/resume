@@ -6,13 +6,11 @@ MAIN_TEX_FILE = $(basename $(lastword $(MAKECMDGOALS)))
 # Output directory for the PDF
 BUILD_DIR = ./build
 
-# LaTeX compiler
-LATEX_COMPILER = xelatex
-
 # Make command to compile the PDF
+# Is aligned with the latex-workshop.latex.recipe.default in settings.json.
 pdf:
 	mkdir -p $(BUILD_DIR)
-	$(LATEX_COMPILER) -output-directory=$(BUILD_DIR) $(MAIN_TEX_FILE).tex
+	latexmk -synctex=1 -interaction=nonstopmode -file-line-error -xelatex -outdir=$(BUILD_DIR) $(MAIN_TEX_FILE).tex
 
 # Help message
 help:
