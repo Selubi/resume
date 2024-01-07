@@ -36,11 +36,10 @@ jobs:
           name: resumes
 
       - name: Configure AWS Credentials
-        uses: aws-actions/configure-aws-credentials@v4
-        with:
-          aws-access-key-id: ${{ secrets.ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.SECRET_ACCESS_KEY }}
-          aws-region: auto
+        run: |
+          aws configure set aws_access_key_id ${{ secrets.ACCESS_KEY_ID }}
+          aws configure set aws_secret_access_key ${{ secrets.SECRET_ACCESS_KEY }}
+
       - name: Upload PDFs to bucket
         run: |
           PREFIX="personal"
