@@ -1,0 +1,26 @@
+name: Build Resume
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container: texlive/texlive:latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Compile
+        run: |
+          for texfile in *.tex; do
+            make pdf "$texfile"
+          done
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: resumes
+          path: build/*.pdf
