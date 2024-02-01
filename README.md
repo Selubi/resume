@@ -7,8 +7,8 @@ More at [customization](#customization).
 
 ## Where can I get the PDF?
 
-https://public.selubi.tech/personal/resume-english.pdf
-https://public.selubi.tech/personal/resume-japanese.pdf
+- English - https://public.selubi.tech/personal/resume-english.pdf
+- 日本語 - https://public.selubi.tech/personal/resume-japanese.pdf
 
 ## Background for this project
 
