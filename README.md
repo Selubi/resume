@@ -2,9 +2,22 @@
 
 This is the source code repository for my personal CV (affectionately called as Selu-CV). It is made using TeX and based on the awesome template, [Awesome-CV](https://github.com/posquit0/Awesome-CV).
 
+A lot of modifications to the original template is made due to personal taste, and Japanese compability (porting anything to CJK in general breaks a lot of things).
+More at [customization](#customization).
+
 ## Where can I get the PDF?
 
 https://public.selubi.tech/personal/resume-english.pdf
+https://public.selubi.tech/personal/resume-japanese.pdf
+
+## Background for this project
+
+A lot of the times, when someone asks for your CV, you need to recreate it from scratch. This involves getting different templates (often from subscription sites which you already forget because you did it several years ago when you needed it last time).
+
+I'm basically trying to kill a lot of birds in one stone with this project:
+
+- It serves as my personal CV, I will always have a CV ready and I can update it anytime easily since its in plain `tex`.
+- It also serves as a technical skill showcase.
 
 ## Deployment
 
@@ -174,4 +187,36 @@ I installed noto fonts with `apt` within the `.devcontainer` and modified header
 \setCJKmainfont{Noto Sans CJK JP}
 \setCJKsansfont{Noto Sans CJK JP}
 \setCJKmonofont{Noto Sans Mono CJK JP}
+```
+
+### Removed section coloring
+
+Deleted the below section on `selu-cv.cls` as it raises an error if section title is less than 3 characters,
+which is a normal occurence in Japanese Language.
+
+```tex
+% Boolean value to switch section color highlighting
+\newbool{acvSectionColorHighlight}
+\setbool{acvSectionColorHighlight}{true}
+
+% Awesome section color
+\def\@sectioncolor#1#2#3{%
+  \ifbool{acvSectionColorHighlight}{{\color{awesome}#1#2#3}}{#1#2#3}%
+}
+```
+
+Naturally, I also removed any mention of `@sectioncolor` in `selu-cv.cls` and I also remove this part on each `.tex`
+
+```tex
+% Set false if you don't want to highlight section with awesome color
+\setbool{acvSectionColorHighlight}{true}
+```
+
+### Remove different styling of first name and last name
+
+The concept of first name and last name doesn't apply to my name anyway.
+
+```tex
+\newcommand*{\headerfirstnamestyle}[1]{{\fontsize{32pt}{1em}\headerfont\bfseries\color{text} #1}}
+\newcommand*{\headerlastnamestyle}[1]{{\fontsize{32pt}{1em}\headerfont\bfseries\color{text} #1}}
 ```
