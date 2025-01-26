@@ -38,15 +38,14 @@ jobs:
         with:
           name: resumes
 
-      - name: Configure AWS Credentials
-        run: |
-          aws configure set aws_access_key_id ${{ secrets.ACCESS_KEY_ID }}
-          aws configure set aws_secret_access_key ${{ secrets.SECRET_ACCESS_KEY }}
-          aws configure set default.region auto
+      - name: Upload English resume
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.PUBLIC_BUCKET_API_KEY }}
+        command: r2 object put ${{ secrets.BUCKET_NAME }}/personal/resume-english.pdf --file=resume-english.pdf
 
-      - name: Upload PDFs to bucket
-        run: |
-          PREFIX="personal"
-          for pdf in *.pdf; do
-            aws s3api put-object --endpoint-url ${{ secrets.S3_API_ENDPOINT }} --bucket ${{ secrets.BUCKET_NAME }} --key $PREFIX/$pdf --body $pdf
-          done
+      - name: Upload Japanese resume
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.PUBLIC_BUCKET_API_KEY }}
+        command: r2 object put ${{ secrets.BUCKET_NAME }}/personal/resume-japanese.pdf --file=resume-japanese.pdf
