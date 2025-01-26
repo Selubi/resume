@@ -43,10 +43,10 @@ jobs:
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.PUBLIC_BUCKET_API_KEY }}
-        command: r2 object put ${{ secrets.BUCKET_NAME }}/personal/resume-english.pdf --file=resume-english.pdf
+          command: r2 object put ${{ secrets.BUCKET_NAME }}/personal/resume-english.pdf --file=resume-english.pdf
 
       - name: Upload Japanese resume
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.PUBLIC_BUCKET_API_KEY }}
-        command: r2 object put ${{ secrets.BUCKET_NAME }}/personal/resume-japanese.pdf --file=resume-japanese.pdf
+          command: r2 object put ${{ secrets.BUCKET_NAME }}/personal/resume-japanese.pdf --file=resume-japanese.pdf
