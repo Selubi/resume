@@ -39,11 +39,14 @@ jobs:
         with:
           name: resumes
 
-      - name: Upload resumes to bucket
+      - name: Upload English resume to bucket
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.R2_API_TOKEN_RESUME_GITHUB }}
-          command: |
-            for pdf in *.pdf; do
-              r2 object put ${{ secrets.BUCKET_NAME }}/personal/$(basename $pdf) --file=$pdf
-            done
+          command: r2 object put ${{ secrets.BUCKET_NAME }}/personal/resume-english.pdf --file=resume-english.pdf
+
+      - name: Upload Japanese resume to bucket
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.R2_API_TOKEN_RESUME_GITHUB }}
+          command: r2 object put ${{ secrets.BUCKET_NAME }}/personal/resume-japanese.pdf --file=resume-japanese.pdf
