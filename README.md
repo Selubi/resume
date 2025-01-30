@@ -34,7 +34,7 @@ At a high level:
 1. Any `*.tex` file on the repository root is compiled to pdf with the same steps as [compiling to pdf](#compiling-to-pdf).
 2. PDFs generated from step 1 is automatically uploaded to a bucket.
 
-For those who are interested I'm using [Cloudflare R2](https://www.cloudflare.com/developer-platform/r2/) via [AWS CLI s3api](https://developers.cloudflare.com/r2/examples/aws/aws-cli/).
+For those who are interested I'm using [Cloudflare R2](https://www.cloudflare.com/developer-platform/r2/) via [Wrangler](https://developers.cloudflare.com/workers/wrangler/).
 
 ## Development guide
 
