@@ -682,7 +682,6 @@
   \begin{justify}
 }{%
   \end{justify}
-  \vspace{-4.0mm}
 }
 
 % Define an environment for cvitems(for cventry) (backwards-compatible with original awesome-cv)
