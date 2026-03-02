@@ -11,11 +11,14 @@
 
 %---------------------------------------------------------
     \cventry
-    {DevOps Engineer (Contract)} % Job title
-    {Woven by Toyota} % Organization
+    {Platform Engineer (Contract)} % Job title
+    {Woven by Toyota (Tokyo, Japan)} % Organization
     {Jan. 2026 - Present} % Location
     {Jan. 2026 - Present} % Date(s)
-    {
+    { 
+      \begin{cvitems}
+        \item {Architected an organization-wide Python interpreter resolution policy for 4,000+ developers across heterogeneous monorepos (Bazel, Poetry, ad-hoc scripts) by implementing a sane-default resolution layer; decoupled Python from OS upgrade lifecycles to unblock global OS migrations with zero developer disruption.}
+      \end{cvitems}
     }
 
 %---------------------------------------------------------
@@ -55,7 +58,7 @@
     {
         \begin{cvitems}
         \item {Engineered and improved various automation pipelines (Python, Bash, Jenkins) to streamline the provisioning and configuration management (Chef Infra) of a 60,000+ server global Bare-Metal-as-a-Service (BMaaS) platform.}
-        \item {Refactored the Python-based Chef cookbook delivery system to eliminate race conditions and non-deterministic behavior; reduced daily synchronization time from 6 hours to under 30 minutes while ensuring absolute data integrity globally.}
+        \item {Refactored the Python-based Chef cookbook delivery system to eliminate race conditions and non-deterministic behavior; reduced daily synchronization time by 12x (6h → 30m) while ensuring absolute data integrity globally.}
         \item {Reduced server provisioning errors from 30\% to 10\% by engineering automated firmware upgrades and hardware/network health-check workflows, significantly increasing deployment reliability.}
         \end{cvitems}
     }
